@@ -6,7 +6,7 @@ php:
 
 before_script:
   - cp .env.travis .env
-  - psql -p 5432 -c 'create database muserpol_tests;'
+  - psql -c 'create database muserpol_tests;' -U postgres
   - composer self-update
   - composer install --no-interaction
   - php artisan migrate --force
