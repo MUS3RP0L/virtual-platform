@@ -177,6 +177,11 @@ return [
         Muserpol\Providers\EventServiceProvider::class,
         Muserpol\Providers\RouteServiceProvider::class,
 
+        /*
+        * Vendor Service Providers
+        */
+        Yajra\Datatables\DatatablesServiceProvider::class,
+
     ],
 
     /*
@@ -225,6 +230,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        /*
+        *  Vendor Aliases
+        */
+        'Datatables' => Yajra\Datatables\Datatables::class,
 
     ],
 
