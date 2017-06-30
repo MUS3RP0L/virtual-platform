@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('test',function(){
+
+	return 'hello worl Laravel 5.4';
+});
