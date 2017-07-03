@@ -19,7 +19,8 @@ $ npm install # or yarn
 $ cp .env.example .env
 $ php artisan key:generate
 ```
-
+Then configure the database in .env
 
 ### Dependencies:
 
+- [vuejs 2.3.4](https://vuejs.org/)
