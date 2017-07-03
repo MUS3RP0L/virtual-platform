@@ -56,5 +56,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \Muserpol\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'administrador' => \Muserpol\Http\Middleware\AdminMiddleware::class,
+        'ec_repeccion' => \Muserpol\Http\Middleware\EconomicComplementMiddleware\Recepcion::class,
     ];
 }
