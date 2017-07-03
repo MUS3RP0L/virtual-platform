@@ -35,13 +35,40 @@ Route::get('/home', 'HomeController@index')->name('home');
 //   return 'usuario  revision';
 // });
 
+Route::group(['middleware' => 'ec_legal'], function() {
+
+  Route::get('legal_route',function(){
+
+    return 'usuario es legal_route';
+  });
+});
 
 
+Route::group(['middleware' => 'ec_aprobacion'], function() {
 
-Route::get('revision_route',function(){
+  Route::get('aprobacion_route',function(){
+
+    return 'usuario es aprobacion_route';
+  });
+});
+
+Route::group(['middleware' => 'ec_calificacion'], function() {
+
+  Route::get('calificacion_route',function(){
+
+    return 'usuario es calificacion_route';
+  });
+});
+
+Route::group(['middleware' => 'ec_revision'], function() {
+
+    Route::get('revision_route',function(){
 
     return 'usuario es revision_route';
-  });
+    });
+
+});
+
 
 Route::group(['middleware' => 'ec_repeccion'], function() {
 
@@ -51,11 +78,64 @@ Route::group(['middleware' => 'ec_repeccion'], function() {
   });
 });
 
+//fondo de retiro
+
+Route::group(['middleware' => 'rf_repeccion'], function() {
+
+  Route::get('rf_recepcion_route',function(){
+
+    return 'usuario es rf_recepcion_route';
+  });
+});
+
+Route::group(['middleware' => 'rf_revision'], function() {
+
+    Route::get('rf_revision_route',function(){
+
+    return 'usuario es rf_revision_route';
+    });
+
+});
+
+Route::group(['middleware' => 'rf_calificacion'], function() {
+
+  Route::get('rf_calificacion_route',function(){
+
+    return 'usuario es rf_calificacion_route';
+  });
+});
+
+Route::group(['middleware' => 'rf_aprobacion'], function() {
+
+  Route::get('rf_aprobacion_route',function(){
+
+    return 'usuario es rf_aprobacion_route';
+  });
+});
+
+Route::group(['middleware' => 'rf_legal'], function() {
+
+  Route::get('rf_legal_route',function(){
+
+    return 'usuario es rf_legal_route';
+  });
+});
+
+Route::group(['middleware' => 'rf_archivo'], function() {
+
+  Route::get('rf_archivo_route',function(){
+
+    return 'usuario es rf_archivo_route';
+  });
+});
+
+
+
 Route::group(['middleware' => 'administrador'], function() {
 
  Route::get('admin',function(){
 
   return 'usuario administrador';
-});
+  });
 
 });

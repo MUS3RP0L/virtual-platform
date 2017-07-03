@@ -7,7 +7,7 @@ use Auth;
 use Illuminate\Support\Facades\DB;
 
 
-class Aprobacion
+class Legal
 {
     /**
      * Handle an incoming request.
@@ -25,7 +25,6 @@ class Aprobacion
             $user_rol = $rolUser->role_id;
 
             switch ($user_rol) {
-
                 case '15':
                      # code...
                      return redirect('rf_archivo_route');
@@ -50,13 +49,14 @@ class Aprobacion
                 case '10':
                     return redirect('rf_recepcion_route');
                     break;
-                
-                case '6':
-                    return redirect('legal_route');
-                    break; 
 
-                case '5':
+                case '6': 
                     return $next($request);
+                    break;
+                
+                case '5':
+                   
+                    return redirect('aprobacion_route');
                     break;
 
                 case '4':

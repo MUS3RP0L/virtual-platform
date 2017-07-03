@@ -1,13 +1,12 @@
 <?php
 
-namespace Muserpol\Http\Middleware\EconomicComplementMiddleware;
+namespace Muserpol\Http\Middleware\RetirementFundMiddleware;
 
 use Closure;
 use Auth;
 use Illuminate\Support\Facades\DB;
 
-
-class Aprobacion
+class Legal
 {
     /**
      * Handle an incoming request.
@@ -27,18 +26,16 @@ class Aprobacion
             switch ($user_rol) {
 
                 case '15':
-                     # code...
-                     return redirect('rf_archivo_route');
-                     break;
+                    return redirect('rf_archivo_route');
+                    break;
 
                 case '14':
-                    return redirect('rf_legal_route');
+                    return $next($request);
                     break;
 
                 case '13':
                     return redirect('rf_calificacion_route');
                     break;
-
                 case '12':
                     return redirect('rf_aprobacion_route');
                     break;
@@ -50,13 +47,14 @@ class Aprobacion
                 case '10':
                     return redirect('rf_recepcion_route');
                     break;
-                
-                case '6':
-                    return redirect('legal_route');
-                    break; 
 
+                case '6': 
+                    return redirect('legal_route');
+                    break;
+                
                 case '5':
-                    return $next($request);
+                   
+                    return redirect('aprobacion_route');
                     break;
 
                 case '4':
