@@ -1,13 +1,12 @@
 <?php
 
-namespace Muserpol\Http\Middleware\EconomicComplementMiddleware;
+namespace Muserpol\Http\Middleware\JuridicalMiddleware;
 
 use Closure;
 use Auth;
 use Illuminate\Support\Facades\DB;
 
-
-class Calificacion
+class Juridica
 {
     /**
      * Handle an incoming request.
@@ -18,12 +17,12 @@ class Calificacion
      */
     public function handle($request, Closure $next)
     {
+        
         if(Auth::check())
         {
             $user = Auth::user();
             $rolUser = DB::table('role_user')->where('user_id','=',$user->id)->first();
             $user_rol = $rolUser->role_id;
-
             switch ($user_rol) {
                  case '9':
                     # code...
@@ -36,10 +35,9 @@ class Calificacion
                 case '7':
                     return redirect('a_contabilidad_route');
                     break;
-
                 case '17':
                     # code...
-                    return redirect('j_juridica_route');
+                    return $next($request);
                     break;
 
                 case '16':
@@ -70,18 +68,18 @@ class Calificacion
                 case '10':
                     return redirect('rf_recepcion_route');
                     break;
-
+                
                 case '6':
                     return redirect('legal_route');
-                    break;
-                
+                    break; 
+
                 case '5':
                     return redirect('aprobacion_route');
                     break;
 
                 case '4':
-                    return $next($request);
-                    break;
+                    return redirect('calificacion_route');
+                    break;    
 
                 case '3':
                     return redirect('revision_route');
@@ -89,13 +87,11 @@ class Calificacion
 
                 case '2':
                     # code...
-                    return redirect('recepcion_route');
+                    return redirect('recepcion_route');;
                     break;
-                    
                 case '1':
                     return redirect('admin');
                     break;
-
                 default:
                     # code...
                     return redirect('home');

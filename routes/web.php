@@ -130,7 +130,6 @@ Route::group(['middleware' => 'rf_archivo'], function() {
 });
 
 
-
 Route::group(['middleware' => 'administrador'], function() {
 
  Route::get('admin',function(){
@@ -139,3 +138,49 @@ Route::group(['middleware' => 'administrador'], function() {
   });
 
 });
+
+//segunda parte 
+
+Route::group(['middleware' => 'l_prestamo'], function() {
+
+  Route::get('l_prestamo_route',function(){
+
+    return 'usuario es l_prestamo_route';
+  });
+});
+
+Route::group(['middleware' => 'j_juridica'], function() {
+
+  Route::get('j_juridica_route',function(){
+
+    return 'usuario es j_juridica_route';
+  });
+});
+
+Route::group(['middleware' => 'a_contabilidad'], function() {
+
+  Route::get('a_contabilidad_route',function(){
+
+    return 'usuario es a_contabilidad_route';
+  });
+});
+
+
+Route::group(['middleware' => 'b_presupuesto'], function() {
+
+  Route::get('b_presupuesto_route',function(){
+
+    return 'usuario es b_presupuesto_route';
+  });
+});
+
+Route::group(['middleware' => 't_tesoreria'], function() {
+
+  Route::get('t_tesoreria_route',function(){
+
+    return 'usuario es t_tesoreria_route';
+  });
+});
+
+
+

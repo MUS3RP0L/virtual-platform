@@ -1,6 +1,6 @@
 <?php
 
-namespace Muserpol\Http\Middleware;
+namespace Muserpol\Http\Middleware\RetirementFundMiddleware;
 
 use Closure;
 use Auth;
@@ -24,6 +24,26 @@ class Revision
             $user_rol = $rolUser->role_id;
 
             switch ($user_rol) {
+                case '9':
+                    # code...
+                    return redirect('t_tesoreria_route');
+                    break;
+                case '8':
+                    # code...
+                    return redirect('b_presupuesto_route');
+                    break;
+                case '7':
+                    return redirect('a_contabilidad_route');
+                    break;
+
+                case '17':
+                    # code...
+                    return redirect('j_juridica_route');
+                    break;
+
+                case '16':
+                    return redirect('l_prestamo_route');
+                    break;
 
                 case '15':
                     return redirect('rf_archivo_route');
@@ -72,7 +92,7 @@ class Revision
                     break;
                     
                 case '1':
-                    return redirect('administrador');
+                    return redirect('admin');
                     break;
 
                 default:

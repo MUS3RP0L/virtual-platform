@@ -68,5 +68,12 @@ class Kernel extends HttpKernel
         'rf_calificacion' => \Muserpol\Http\Middleware\RetirementFundMiddleware\Calificacion::class,
         'rf_legal' => \Muserpol\Http\Middleware\RetirementFundMiddleware\Legal::class,
         'rf_archivo' => \Muserpol\Http\Middleware\RetirementFundMiddleware\Archivo::class,
+
+        'l_prestamo' => \Muserpol\Http\Middleware\LoanMiddleware\Prestamo::class,
+        'j_juridica' => \Muserpol\Http\Middleware\JuridicalMiddleware\Juridica::class,
+
+        'a_contabilidad' => \Muserpol\Http\Middleware\AccountancyMiddleware\Contabilidad::class,
+        'b_presupuesto' => \Muserpol\Http\Middleware\BudgetMiddleware\Presupuesto::class,
+        't_tesoreria' => \Muserpol\Http\Middleware\TreasuryMiddleware\Tesoreria::class,
     ];
 }
