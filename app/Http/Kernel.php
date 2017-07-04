@@ -56,5 +56,17 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \Muserpol\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'administrador' => \Muserpol\Http\Middleware\AdminMiddleware::class,
+        'ec_repeccion' => \Muserpol\Http\Middleware\EconomicComplementMiddleware\Recepcion::class,
+        'ec_revision' => \Muserpol\Http\Middleware\EconomicComplementMiddleware\Revision::class,
+        'ec_calificacion' => \Muserpol\Http\Middleware\EconomicComplementMiddleware\Calificacion::class,
+        'ec_aprobacion' => \Muserpol\Http\Middleware\EconomicComplementMiddleware\Aprobacion::class,
+        'ec_legal' => \Muserpol\Http\Middleware\EconomicComplementMiddleware\Aprobacion::class,
+        'rf_recepccion' => \Muserpol\Http\Middleware\RetirementFundMiddleware\Recepcion::class,
+        'rf_revision' => \Muserpol\Http\Middleware\RetirementFundMiddleware\Revision::class,
+        'rf_aprobacion' => \Muserpol\Http\Middleware\RetirementFundMiddleware\Aprobacion::class,
+        'rf_calificacion' => \Muserpol\Http\Middleware\RetirementFundMiddleware\Calificacion::class,
+        'rf_legal' => \Muserpol\Http\Middleware\RetirementFundMiddleware\Legal::class,
+        'rf_archivo' => \Muserpol\Http\Middleware\RetirementFundMiddleware\Archivo::class,
     ];
 }
