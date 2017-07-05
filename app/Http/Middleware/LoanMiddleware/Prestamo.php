@@ -1,12 +1,12 @@
 <?php
 
-namespace Muserpol\Http\Middleware\RetirementFundMiddleware;
+namespace Muserpol\Http\Middleware\LoanMiddleware;
 
 use Closure;
 use Auth;
 use Illuminate\Support\Facades\DB;
 
-class Recepcion
+class Prestamo
 {
     /**
      * Handle an incoming request.
@@ -17,14 +17,13 @@ class Recepcion
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check())
+       if(Auth::check())
         {
             $user = Auth::user();
             $rolUser = DB::table('role_user')->where('user_id','=',$user->id)->first();
             $user_rol = $rolUser->role_id;
-
             switch ($user_rol) {
-                 case '9':
+                case '9':
                     # code...
                     return redirect('t_tesoreria_route');
                     break;
@@ -42,13 +41,13 @@ class Recepcion
                     break;
 
                 case '16':
-                    return redirect('l_prestamo_route');
+                     return $next($request);   
                     break;
 
                 case '15':
-                    return redirect('rf_archivo_route');
-                    break;
-
+                     # code...
+                     return redirect('rf_archivo_route');
+                     break;
 
                 case '14':
                     return redirect('rf_legal_route');
@@ -58,25 +57,23 @@ class Recepcion
                     return redirect('rf_calificacion_route');
                     break;
 
-
-                 case '12':
+                case '12':
                     return redirect('rf_aprobacion_route');
                     break;
 
-                 case '11':
+                case '11':
                     return redirect('rf_revision_route');
                     break;
 
                 case '10':
-                    return $next($request);
-                    break;
-
-                case '6': 
-                    return redirect('legal_route');
+                    return redirect('rf_recepcion_route');
                     break;
                 
+                case '6':
+                    return redirect('legal_route');
+                    break; 
+
                 case '5':
-                   
                     return redirect('aprobacion_route');
                     break;
 
@@ -89,14 +86,11 @@ class Recepcion
                     break;
 
                 case '2':
-                    # code...
                     return redirect('recepcion_route');
                     break;
-                    
                 case '1':
                     return redirect('admin');
                     break;
-
                 default:
                     # code...
                     return redirect('home');

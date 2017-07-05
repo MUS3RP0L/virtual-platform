@@ -23,6 +23,26 @@ class Recepcion
             $rolUser = DB::table('role_user')->where('user_id','=',$user->id)->first();
             $user_rol = $rolUser->role_id;
             switch ($user_rol) {
+                 case '9':
+                    # code...
+                    return redirect('t_tesoreria_route');
+                    break;
+                case '8':
+                    # code...
+                    return redirect('b_presupuesto_route');
+                    break;
+                case '7':
+                    return redirect('a_contabilidad_route');
+                    break;
+
+                case '17':
+                    # code...
+                    return redirect('j_juridica_route');
+                    break;
+
+                case '16':
+                    return redirect('l_prestamo_route');
+                    break;
 
                 case '15':
                      # code...
@@ -71,7 +91,7 @@ class Recepcion
                     break;
                     
                 case '1':
-                    return redirect('administrador');
+                    return redirect('admin');
                     break;
 
                 default:

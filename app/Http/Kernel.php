@@ -61,12 +61,19 @@ class Kernel extends HttpKernel
         'ec_revision' => \Muserpol\Http\Middleware\EconomicComplementMiddleware\Revision::class,
         'ec_calificacion' => \Muserpol\Http\Middleware\EconomicComplementMiddleware\Calificacion::class,
         'ec_aprobacion' => \Muserpol\Http\Middleware\EconomicComplementMiddleware\Aprobacion::class,
-        'ec_legal' => \Muserpol\Http\Middleware\EconomicComplementMiddleware\Aprobacion::class,
-        'rf_recepccion' => \Muserpol\Http\Middleware\RetirementFundMiddleware\Recepcion::class,
+        'ec_legal' => \Muserpol\Http\Middleware\EconomicComplementMiddleware\Legal::class,
+        'rf_repeccion' => \Muserpol\Http\Middleware\RetirementFundMiddleware\Recepcion::class,
         'rf_revision' => \Muserpol\Http\Middleware\RetirementFundMiddleware\Revision::class,
         'rf_aprobacion' => \Muserpol\Http\Middleware\RetirementFundMiddleware\Aprobacion::class,
         'rf_calificacion' => \Muserpol\Http\Middleware\RetirementFundMiddleware\Calificacion::class,
         'rf_legal' => \Muserpol\Http\Middleware\RetirementFundMiddleware\Legal::class,
         'rf_archivo' => \Muserpol\Http\Middleware\RetirementFundMiddleware\Archivo::class,
+
+        'l_prestamo' => \Muserpol\Http\Middleware\LoanMiddleware\Prestamo::class,
+        'j_juridica' => \Muserpol\Http\Middleware\JuridicalMiddleware\Juridica::class,
+
+        'a_contabilidad' => \Muserpol\Http\Middleware\AccountancyMiddleware\Contabilidad::class,
+        'b_presupuesto' => \Muserpol\Http\Middleware\BudgetMiddleware\Presupuesto::class,
+        't_tesoreria' => \Muserpol\Http\Middleware\TreasuryMiddleware\Tesoreria::class,
     ];
 }
