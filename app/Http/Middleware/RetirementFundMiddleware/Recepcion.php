@@ -64,11 +64,11 @@ class Recepcion
                     break;
 
                  case '11':
-                    return $next($request);
+                    return redirect('rf_revision_route');
                     break;
 
                 case '10':
-                    return redirect('rf_recepcion_route');
+                    return $next($request);
                     break;
 
                 case '6': 
